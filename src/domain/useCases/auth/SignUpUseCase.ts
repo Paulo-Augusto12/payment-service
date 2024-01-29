@@ -2,7 +2,6 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
 class SignUpUseCaseImpl implements ISignUpUseCase {
-  constructor(private prisma: PrismaClient) {}
   async execute({
     email,
     password,
@@ -10,8 +9,9 @@ class SignUpUseCaseImpl implements ISignUpUseCase {
     name,
   }: SignUpRequest): Promise<{ name: string; email: string }> {
     try {
+      const prisma = new PrismaClient();
       const encriptedPassword = await bcrypt.hash(password, 10);
-      const data = await this.prisma.user.create({
+      const data = await prisma.user.create({
         data: {
           email,
           name,
@@ -23,13 +23,16 @@ class SignUpUseCaseImpl implements ISignUpUseCase {
       });
       return { email: data.email, name: data.name };
     } catch (err: any) {
+      if (err.code === "P2002") {
+        throw new Error("Este e-mail já foi cadastrado no banco de dados");
+      }
       throw new Error(err);
     }
   }
 }
 
 function SignUpUseCase() {
-  return new SignUpUseCaseImpl(new PrismaClient());
+  return new SignUpUseCaseImpl();
 }
 
 export { SignUpUseCase };
