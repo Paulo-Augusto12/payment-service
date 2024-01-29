@@ -1,9 +1,19 @@
-import { Router } from 'express'
+import { Router } from "express";
+import { SignUpUseCase } from "../../domain/useCases/auth/SignUpUseCase";
 
-const authRouter = Router()
+const authRouter = Router();
 
-authRouter.post('/login', (req, res) => {})
+authRouter.post("/login", async (req, res) => {
+  const body: SignUpRequest = req.body;
+  try {
+    const { execute } = SignUpUseCase();
+    const response = await execute(body);
+    return res.status(201).json({ created: response });
+  } catch (err) {
+    return res.status(400).json({ error: err });
+  }
+});
 
-authRouter.post('/signup', (req, res) => {})
+authRouter.post("/signup", (req, res) => {});
 
-export { authRouter }
+export { authRouter };
