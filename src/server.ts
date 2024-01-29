@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { app } from "./router/app/app";
+import { app } from "./app/app";
 dotenv.config();
 
 app.listen(process.env.PORT || 3030, () => {
