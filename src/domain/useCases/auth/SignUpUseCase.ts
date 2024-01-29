@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
+import { prisma } from "../../../database/client";
 
 class SignUpUseCaseImpl implements ISignUpUseCase {
   async execute({
@@ -9,7 +10,6 @@ class SignUpUseCaseImpl implements ISignUpUseCase {
     name,
   }: SignUpRequest): Promise<{ name: string; email: string }> {
     try {
-      const prisma = new PrismaClient();
       const encriptedPassword = await bcrypt.hash(password, 10);
       const data = await prisma.user.create({
         data: {
