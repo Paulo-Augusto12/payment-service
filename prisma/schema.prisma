@@ -9,3 +9,63 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum TransactionType {
+  credit_card
+  debit_card
+}
+
+enum PaidStatus {
+  paid
+  waiting_funds
+}
+
+enum Fees {
+  five_percent
+  three_percent
+}
+
+model User {
+  id               String        @id @default(uuid())
+  name             String
+  password         String
+  email            String        @unique
+  phone            String?
+  jwtToken         String?
+  availableBalance Float
+  toBeReceived     Float
+  transactions     Transaction[]
+  cards            Card[]
+  payables         Payable[]
+}
+
+model Payable {
+  id          String     @id @default(uuid())
+  paid        PaidStatus @default(paid)
+  paymentDate DateTime
+  user        User       @relation(fields: [userId], references: [id])
+  userId      String
+  fee         Fees
+}
+
+model Transaction {
+  id              String          @id @default(uuid())
+  user            User            @relation(fields: [userId], references: [id])
+  userId          String          @unique
+  description     String
+  transactionType TransactionType @default(debit_card)
+  cardId          String
+  card            Card            @relation(fields: [cardId], references: [id])
+}
+
+model Card {
+  id           String        @id @default(uuid())
+  user         User          @relation(fields: [userId], references: [id])
+  userId       String
+  name         String
+  ownerName    String
+  cvv          Int
+  expireAt     DateTime
+  number       Int
+  transactions Transaction[]
+}
