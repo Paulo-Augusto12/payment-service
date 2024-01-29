@@ -3,7 +3,9 @@ import { SignUpUseCase } from "../../domain/useCases/auth/SignUpUseCase";
 
 const authRouter = Router();
 
-authRouter.post("/login", async (req, res) => {
+authRouter.post("/login", async (req, res) => {});
+
+authRouter.post("/signup", async (req, res) => {
   const body: SignUpRequest = req.body;
   try {
     const { execute } = SignUpUseCase();
@@ -13,7 +15,5 @@ authRouter.post("/login", async (req, res) => {
     return res.status(400).json({ error: err });
   }
 });
-
-authRouter.post("/signup", (req, res) => {});
 
 export { authRouter };
