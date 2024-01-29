@@ -109,6 +109,7 @@ Você deve criar um serviço com os seguintes requisitos:
 - Consultar dados do usuário
 - Editar dados do usuário
 - Qr code do usuário (será utilizado para receber transações)
+- Gerar Qr code com valor fixo
 - Consultar saldo do usuário
 - Deposito em conta
 - Realizar transações de crédito e débito
