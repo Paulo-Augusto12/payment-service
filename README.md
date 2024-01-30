@@ -118,3 +118,11 @@ Você deve criar um serviço com os seguintes requisitos:
 - [ ] Adicionar um cartão
 - [ ] Editar um cartão
 - [ ] Remover um cartão
+
+# Requisitos de paginação
+
+- [ ] A rota de consulta de transações deve possuir os seguintes filtros
+   - [ ] Paginação
+   - [ ] Filtro por título
+   - [ ] Filtro por tipo de transação
+   - [ ] Filtro por tada em que a transação foi realizada
