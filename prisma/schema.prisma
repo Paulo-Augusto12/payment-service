@@ -37,6 +37,7 @@ model User {
   transactions     Transaction[]
   cards            Card[]
   payables         Payable[]
+  joinedAt         DateTime      @default(now())
 }
 
 model Payable {
@@ -46,6 +47,7 @@ model Payable {
   user        User       @relation(fields: [userId], references: [id])
   userId      String
   fee         Fees
+  createdAt   DateTime   @default(now())
 }
 
 model Transaction {
@@ -56,6 +58,7 @@ model Transaction {
   transactionType TransactionType @default(debit_card)
   cardId          String
   card            Card            @relation(fields: [cardId], references: [id])
+  createdAt       DateTime        @default(now())
 }
 
 model Card {
