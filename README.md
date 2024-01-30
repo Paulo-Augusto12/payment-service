@@ -103,8 +103,8 @@ Você deve criar um serviço com os seguintes requisitos:
 
 # Rotas do serviço
 
-- [ ] Login
-- [ ] Cadastro
+- [x] Login
+- [x] Cadastro
 - [ ] Recuperar senha
 - [ ] Consultar dados do usuário
 - [ ] Editar dados do usuário
