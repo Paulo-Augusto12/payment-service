@@ -7,10 +7,10 @@ function validateJWT(req: Request, res: Response, next: NextFunction) {
     jwt.verify(token, process.env.JWT_SECRET as string, (error, userData) => {
       if (error) {
         return res
-          .status(500)
-          .json({ error: "Houve um erro por parte do servidor" });
+          .status(401)
+          .json({ unauthorized: "Requisição não autorizada" });
       }
-      req.userData = userData
+      req.userData = userData;
       next();
     });
   } else {
