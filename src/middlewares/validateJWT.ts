@@ -10,6 +10,7 @@ function validateJWT(req: Request, res: Response, next: NextFunction) {
           .status(500)
           .json({ error: "Houove um erro por parte do servidor" });
       }
+      req.userData = userData
       next();
     });
   } else {
