@@ -31,8 +31,8 @@ export type GetUserByEmailResponse = {
 export type LoginUseCaseResponse = {
   user: {
     name: string;
-    availableBalance: number;
-    toBeReceived: number;
+    email: string;
+    id: string;
     phone: string | null;
   };
   auth: { token: string };

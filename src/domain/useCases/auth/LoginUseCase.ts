@@ -55,7 +55,15 @@ class LoginUseCaseImpl implements UseCaseInterfaces.ILoginUseCase {
               },
             });
 
-            return { auth: { token }, user: loggedUser };
+            return {
+              auth: { token },
+              user: {
+                name: loggedUser.name,
+                email: loggedUser.email,
+                id: loggedUser.id,
+                phone: loggedUser.phone,
+              },
+            };
           } else {
             throw new Error("Uma senha incorreta foi informada");
           }
