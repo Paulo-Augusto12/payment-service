@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { ConsultUserDataUseCase } from "../../domain/useCases/users/ConsultUserDataUseCase";
-import { validateJWT } from "../../middlewares/validateJWT";
+import { EditUserDataUseCase } from "../../domain/useCases/users/EditUserDataUseCase";
 
 const userRouter = Router();
 
@@ -19,5 +19,10 @@ userRouter.get("/consult", async (req, res) => {
   } catch (err: any) {
     return res.status(400).json({ error: err.message });
   }
+});
+
+userRouter.put("/edit", async (req, res) => {
+  const id = req.userData;
+  const editUserDataUseCase = EditUserDataUseCase();
 });
 export { userRouter };
