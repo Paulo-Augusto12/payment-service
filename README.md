@@ -107,6 +107,7 @@ Você deve criar um serviço com os seguintes requisitos:
 - [x] Logout
 - [x] Cadastro
 - [ ] Recuperar senha
+- [ ] Alterar senha
 - [x] Consultar dados do usuário
 - [ ] Editar dados do usuário
 - [ ] Qr code do usuário (será utilizado para receber transações)
