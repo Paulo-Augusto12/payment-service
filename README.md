@@ -116,4 +116,5 @@ Você deve criar um serviço com os seguintes requisitos:
 - [ ] Realizar transações de crédito e débito
 - [ ] Consultar transações de crédito e débito
 - [ ] Adicionar um cartão
+- [ ] Editar um cartão
 - [ ] Remover um cartão
