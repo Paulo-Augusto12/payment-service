@@ -71,7 +71,6 @@ model Card {
   userId       String
   name         String
   ownerName    String
-  cvv          Int
   expireAt     DateTime
   number       Int
   transactions Transaction[]
