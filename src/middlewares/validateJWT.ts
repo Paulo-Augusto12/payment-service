@@ -8,7 +8,7 @@ function validateJWT(req: Request, res: Response, next: NextFunction) {
       if (error) {
         return res
           .status(500)
-          .json({ error: "Houove um erro por parte do servidor" });
+          .json({ error: "Houve um erro por parte do servidor" });
       }
       req.userData = userData
       next();
