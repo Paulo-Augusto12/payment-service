@@ -103,16 +103,16 @@ Você deve criar um serviço com os seguintes requisitos:
 
 # Rotas do serviço
 
-- Login
-- Cadastro
-- Recuperar senha
-- Consultar dados do usuário
-- Editar dados do usuário
-- Qr code do usuário (será utilizado para receber transações)
-- Gerar Qr code com valor fixo
-- Consultar saldo do usuário
-- Deposito em conta
-- Realizar transações de crédito e débito
-- Consultar transações de crédito e débito
-- Adicionar um cartão
-- Remover um cartão
+- [ ] Login
+- [ ] Cadastro
+- [ ] Recuperar senha
+- [ ] Consultar dados do usuário
+- [ ] Editar dados do usuário
+- [ ] Qr code do usuário (será utilizado para receber transações)
+- [ ] Gerar Qr code com valor fixo
+- [ ] Consultar saldo do usuário
+- [ ] Deposito em conta
+- [ ] Realizar transações de crédito e débito
+- [ ] Consultar transações de crédito e débito
+- [ ] Adicionar um cartão
+- [ ] Remover um cartão
