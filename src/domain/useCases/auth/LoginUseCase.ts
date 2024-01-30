@@ -7,7 +7,9 @@ class LoginUseCaseImpl implements UseCaseInterfaces.ILoginUseCase {
     userId,
   }: UseCaseInterfaces.GenerateUserTokenRequest): Promise<string> {
     try {
-      return jwt.sign(userId, process.env.JWT_SECRET as string);
+      return jwt.sign(userId, process.env.JWT_SECRET as string, {
+        expiresIn: "1h",
+      });
     } catch (err: any) {
       throw new Error(err.message);
     }
